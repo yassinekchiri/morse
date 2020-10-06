@@ -33,6 +33,11 @@ def decode(message):
     if message == "":
     	return ""
     else:
-        message_alphabet = message.split(" ")
-        translated_message = [DICTIONNARY[alphabet] for alphabet in message_alphabet]
-        return ''.join(translated_message)
+        message_words = message.split(" / ")
+        translated_message = [decode_word(word) for word in message_words]
+        return ' '.join(translated_message)
+
+def decode_word(word):
+    word_alphabet = word.split(" ")
+    translated_word = [DICTIONNARY[alphabet] for alphabet in word_alphabet]
+    return ''.join(translated_word)
